@@ -16,9 +16,14 @@ export class DataService {
     private http: HttpClient
   ) {}
 
-  getYearData = async (year: string): Promise<void> => {
-    const data: DataModel = await this.http.get<DataModel>(`./assets/${ year }/data.json`).toPromise();
-    this.data.next(data);
+  getYearData = async (year: string): Promise<boolean> => {
+    try {
+      const data: DataModel = await this.http.get<DataModel>(`./assets/${ year }/data.json`).toPromise();
+      this.data.next(data);
+      return true;
+    } catch (error) {
+      return false;
+    }
   };
 
 }

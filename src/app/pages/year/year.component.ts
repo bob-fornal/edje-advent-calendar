@@ -10,6 +10,7 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class YearComponent implements OnInit {
 
+  dataSuccess: boolean = true;
   days: Array<number> = [];
   year: string = '';
   date: string = '';
@@ -23,10 +24,10 @@ export class YearComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.year = (this.route.snapshot.paramMap.get('year') as string);
     this.date = (new Date()).getDate().toString();
-    this.dataService.getYearData(this.year);
+    this.dataSuccess = await this.dataService.getYearData(this.year);
   }
 
 }

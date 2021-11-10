@@ -1,7 +1,10 @@
 
 <div class="main-title">EDJE Advent Calendar ({{ year }})</div>
-<div class="wrapper auto-grid">
+<div class="wrapper auto-grid" *ngIf="dataSuccess === true">
   <ng-container *ngFor="let day of days">
     <daily-card [day]="day + ''" [date]="date"></daily-card>
   </ng-container>
+</div>
+<div class="wrapper" *ngIf="dataSuccess === false">
+  Data not found for ... {{ year }}
 </div>
