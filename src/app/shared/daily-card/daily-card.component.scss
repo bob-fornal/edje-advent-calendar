@@ -10,6 +10,7 @@
 }
 
 .door {
+
   z-index: 1000;
   position: absolute;
   top: 0px;
@@ -20,6 +21,13 @@
   transform-origin: left;
   /*Speed of the Door animation*/
   transition: all 0.5s ease-in-out;
+
+  .eddie {
+    position: absolute;
+    left: 35%;
+    top: 4em;
+    width: 20%;
+  }
 
   &:not(.not-current) {
     cursor: pointer;
