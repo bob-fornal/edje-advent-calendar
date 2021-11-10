@@ -1,10 +1,6 @@
 
-.title {
-  text-align: center;
-}
-
 .backDoor {
-  background-color: #333;
+  background-color: palegreen;
   position: relative;
   width: 16rem;
   height: 200px;
@@ -14,7 +10,7 @@
 }
 
 .door {
-  background-color: brown;
+  z-index: 1000;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -24,6 +20,14 @@
   transform-origin: left;
   /*Speed of the Door animation*/
   transition: all 0.5s ease-in-out;
+
+  &:not(.not-current) {
+    cursor: pointer;
+    background-color: brown;
+  }
+  &.not-current {
+    background-color: gray;
+  }
 
   &.doorOpen {
     /*prespectiv creates the door open effect*/
@@ -41,6 +45,29 @@
   }
 }
 
+.card-title {
+  text-align: center;
+}
+
 .card-content {
+  box-sizing: border-box;
+  z-index: 100;
+
+  color: black;
+  height: 100%;
   padding: 1em;
+  position: relative;
+  text-align: center;
+
+  .title {
+    font-weight: bold;
+  }
+  .type {
+    margin-bottom: 1em;
+  }
+  .headshot {
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+  }
 }

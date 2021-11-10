@@ -2,6 +2,6 @@
 <div class="main-title">EDJE Advent Calendar ({{ year }})</div>
 <div class="wrapper auto-grid">
   <ng-container *ngFor="let day of days">
-    <daily-card [day]="day + ''"></daily-card>
+    <daily-card [day]="day + ''" [date]="date"></daily-card>
   </ng-container>
 </div>

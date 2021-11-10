@@ -1,15 +1,26 @@
 
 <mat-card>
-  <mat-card-title class="title">{{ day }} Dec</mat-card-title>
+  <mat-card-title class="card-title">{{ day }} Dec</mat-card-title>
   <mat-card-content>
 
     <div class="backDoor">
-      <div class="door" (click)="toggleDoor()" [class.doorOpen]="open">
+      <div class="door" [class.not-current]="pastDate()" (click)="toggleDoor()" [class.doorOpen]="open">
         <div class="handle"></div>
       </div>
 
       <div class="card-content">
-        Hello!
+        <ng-container *ngIf="!hasData()">
+          <div class="title">{{ data.title }}</div>
+        </ng-container>
+
+        <ng-container *ngIf="hasData()">
+          <div class="title">
+            <a [href]="data.link" target="_blank">{{ data.title }}</a>
+          </div>
+          <div class="type">({{ data.type }})</div>
+          <div class="author">{{ data.author }}</div>
+          <img class="headshot" [src]="data.headshot" />
+        </ng-container>
       </div>
     </div>
 
