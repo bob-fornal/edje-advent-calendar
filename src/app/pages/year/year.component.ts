@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -8,7 +8,7 @@ import { DataService } from 'src/app/core/services/data.service';
   templateUrl: './year.component.html',
   styleUrls: ['./year.component.scss']
 })
-export class YearComponent implements OnInit {
+export class YearComponent {
 
   dataSuccess: boolean = true;
   days: Array<number> = [];
@@ -22,12 +22,14 @@ export class YearComponent implements OnInit {
     for (let i = 0, len = 25; i < len; i++) {
       this.days.push(i + 1);
     }
+
+    this.route.data.subscribe(this.handleYear.bind(this));
   }
 
-  async ngOnInit(): Promise<void> {
-    this.year = (this.route.snapshot.paramMap.get('year') as string);
+  handleYear = async (data: any): Promise<void> => {
+    this.year = data.year;
     this.date = (new Date()).getDate().toString();
     this.dataSuccess = await this.dataService.getYearData(this.year);
-  }
+  };
 
 }
