@@ -8,14 +8,14 @@ import { YearComponent } from './pages/year/year.component';
 
 const year: string = (new Date()).getFullYear().toString();
 const routes: Routes = [
-  { path: 'year-2022', component: YearComponent, data: { year: '2022' } },
-  { path: '', redirectTo: '/year-2022', pathMatch: 'full' }
+  { path: '', redirectTo: '/year-2022', pathMatch: 'full' },
+  { path: 'year-2022', component: YearComponent, data: { year: '2022' } }
 ]
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [
     RouterModule
