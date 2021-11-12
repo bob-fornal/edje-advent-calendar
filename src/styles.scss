@@ -3,13 +3,13 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @include mat-core();
 $primary: mat-palette($mat-grey);
 $accent:  mat-palette($mat-light-blue, 600, 300, 600);
 $warn:    mat-palette($mat-deep-orange, 300, 500, 800);
 
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "@angular/material/prebuilt-themes/purple-green.css";
 
 body {
   padding: 1rem;
